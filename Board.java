@@ -6,6 +6,7 @@ import java.util.BufferedReader;
 public class Board {
 
     private Hex[][][] board;
+    private ArrayList<Node> nodes;
     private ArrayList<int> numbers;
 
     public Board() {
@@ -34,27 +35,71 @@ public class Board {
 			    switch (a){
 				//nodes on hexes labeled clockwise from top - 0
 			    case 0:
-				if (z != 0 || y + z != 3){
-				    board[x + 1, y, z - 1].setNode(4, n);
-				}
 				if (z != 0 || x + z != 3){
 				    board[x, y + 1, z - 1].setNode(2, n);
+				}
+				if (z != 0 || y + z != 3){
+				    board[x + 1, y, z - 1].setNode(4, n);
 				}
 				break;
 			    case 1:
 				if (z != 0 || y + z != 3){
-				    board[x + 1, y, z - 1].setNode(3,n);
+				    board[x + 1, y, z - 1].setNode(3, n);
 				}
 				if (x != 6 || x + z != 9){
-				    board
+				    board[x + 1, y - 1, z].setNode(5, n);
 				}
+				break;
+			    case 2:
+				if (x != 6 || x + z != 9){
+				    board[x + 1, y - 1, z].setNode(4, n);
+				}
+				if (z != 6 || x + z != 9){
+				    board[x, y - 1, z + 1].setNode(0, n);
+				}
+				break;
+			    case 3:
+				if (z != 6 || x + z != 9){
+				    board[x, y - 1, z + 1].setNode(5, n);
+				}
+				if (z != 6 || y + z != 9){
+				    board[x - 1, y, z + 1].setNode(1, n);
+				}
+				break;
+			    case 4:
+				if (z != 6 || y + z != 9){
+				    board[x - 1, y, z + 1].setNode(0, n);
+				}
+				if (y != 6 || y + z != 9){
+				    board[x - 1, y + 1, z].setNode(2, n);
+				}
+				break;
+			    case 5:
+				if (y != 6 || y + z != 9){
+				    board[x - 1, y + 1, z].setNode(1, n);
+				}
+				if (y != 6 || y + x != 9){
+				    board[x, y + 1, z - 1].setNode(3, n);
+				}
+				break;
 			    }
 			}
 		    }
 		}
 	    }
 	}
-
+	
+	for (int i = 0; i < board.length; i++){
+	    for (int j = 0; j < board[i].length; j++){
+		for (int k = 0; k < board[i][j].length; k++){
+		    for (int a = 0; a < 6; a++){
+			Node n = board[i][j][k].getNode(a);
+			if (nodes.indexOf(n) == -1)
+			    nodes.add(n);
+		    }
+		}
+	    }
+	}
     }
 
 }
