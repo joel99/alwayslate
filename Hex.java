@@ -18,7 +18,7 @@ public class Hex {
 	return num;
     }
 
-    public String getResource() {
+    public int getResource() {
 	return resource;
     }
 
@@ -26,7 +26,7 @@ public class Hex {
 	num = x;
     }
 
-    public void setResource(String res){
+    public void setResource(int res){
 	resource = res;
     }
 
