@@ -1,21 +1,25 @@
 import java.io.*;
 import java.util.*;
-
-public class QuickFit {
-   
-    Exercise currEx;
+import processing.core.*;   
     
-    public void dispEx(Exercise){
-	
-    }
+    private Exercise currEx;
+    
 
     public static void main(String[] args){
 
     }
    
-    void setup(){
+    public void setup() {
+      try{
+      size(800, 600);
+      currEx = new Exercise("pushup", 10);
+      }
+      catch(Exception e){
+      System.out.println("lol");
+      }
     }
-    void draw(){
-   
+
+    public void draw(){
+        PImage image = loadImage("../ExerciseImages/" + currEx._name + ".png");
+        image(image, 0, 0);
     }
-}

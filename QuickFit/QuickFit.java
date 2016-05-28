@@ -1,7 +1,8 @@
 import java.io.*;
 import java.util.*;
-   
-    
+import processing.core.*;  
+
+public class QuickFit extends PApplet{    
     private Exercise currEx;
     
 
@@ -23,3 +24,4 @@ import java.util.*;
         PImage image = loadImage("../ExerciseImages/" + currEx._name + ".png");
         image(image, 0, 0);
     }
+}
