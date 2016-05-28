@@ -26,5 +26,7 @@ public class Node {
 	}
     }
     
-    public void addNeighbor(){}
+    public void addHex(Hex h){
+	hexes.add(h);
+    }
 }
