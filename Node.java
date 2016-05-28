@@ -9,22 +9,25 @@ public class Node {
     private ArrayList<Node> neighbors;
     private ArrayList<Hex> hexes;
     private Player owner;
+    private boolean isUsed;
 
     public Node(){
 	isUsed = false;
 	neighbors = new ArrayList<>();
-	hexes = newArrayList<>();
+	hexes = new ArrayList<>();
+	owner = null;
     }
-    
+   
+    /*
     public void checkRes(int roll){
 	for (Hex h: hexes){
 	    if (h.getNum() == roll){
-		if (h.isOpen()){
+		if (!h.isBlocked()){
 		    owner.addRes(h.getResource(), state);
 		}
 	    }
 	}
     }
-    
+    */
     public void addNeighbor(){}
 }

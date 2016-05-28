@@ -1,7 +1,9 @@
+import java.util.ArrayList;
+
 public class Hex {
 
     private int num;
-    private String resource;
+    private int resource; //0: Wheat 1: Wood 2: Rock 3: Sheep 4: Brick
     private boolean blocked;
     private Node[] nodes;
 
@@ -9,8 +11,7 @@ public class Hex {
       	blocked = false;
 	nodes = new Node[6];
 	num = 0;
-	resource = "";
-	hexes = new Hex[3];
+	resource = -1;
     }
 
     public int getNum() {
@@ -34,11 +35,11 @@ public class Hex {
     }
 
     public void block() {
-	isBlocked = true;
+	blocked = true;
     }
 
     public void unblock() {
-	isBlocked = false;
+	blocked = false;
     }
     
     public void setNode(int i, Node n){
