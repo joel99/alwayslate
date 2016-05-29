@@ -3,11 +3,7 @@ import java.util.ArrayList;
 public class Board {
 
   public Hex[][][] board;
-<<<<<<< HEAD
   public ArrayList<Node> nodes;
-=======
-  private ArrayList<Node> nodes;
->>>>>>> bd780db7726da70dd4c799fc587b189d73f86c6a
   private ArrayList<Integer> numbers;
 
   public Board() {
@@ -106,8 +102,6 @@ public class Board {
               Node n = board[i][j][k].getNode(a);
               if (nodes.indexOf(n) == -1)
                 nodes.add(n);
-<<<<<<< HEAD
-=======
             }
         }
       }
@@ -120,32 +114,12 @@ public class Board {
           if ((i + j + k) == 6)
             for (int a = 0; a < 6; a++) {
               board[i][j][k].getNode(a).addHex(board[i][j][k]);
->>>>>>> bd780db7726da70dd4c799fc587b189d73f86c6a
             }
         }
       }
     }
+    
 
-<<<<<<< HEAD
-    //add hexes to nodes
-    for (int i = 0; i < board.length; i++) {
-      for (int j = 0; j < board[i].length; j++) {
-        for (int k = 0; k < board[i][j].length; k++) {
-          if ((i + j + k) == 6)
-            for (int a = 0; a < 6; a++) {
-              board[i][j][k].getNode(a).addHex(board[i][j][k]);
-            }
-        }
-      }
-    }
-
-    //number distribution
-    boolean distrib = false;
-    while (!distrib) {
-      numbers = new ArrayList<>();
-      for (int i = 0; i < nums.length; i++)
-        numbers.add(nums[i]);
-=======
     //number distribution
     boolean distrib = false;
     while (!distrib) {
@@ -164,26 +138,10 @@ public class Board {
         }
       }
       distrib = true;
->>>>>>> bd780db7726da70dd4c799fc587b189d73f86c6a
 
       for (int i = 0; i < board.length; i++) {
         for (int j = 0; j < board[i].length; j++) {
           for (int k = 0; k < board[i][j].length; k++) {
-<<<<<<< HEAD
-            if ((i + j + k) == 6) {
-              int randomInt = (int)(Math.random() * numbers.size());
-              board[i][j][k].setNum(numbers.remove(randomInt));
-            }
-          }
-        }
-      }
-      distrib = true;
-
-      for (int i = 0; i < board.length; i++) {
-        for (int j = 0; j < board[i].length; j++) {
-          for (int k = 0; k < board[i][j].length; k++) {
-=======
->>>>>>> bd780db7726da70dd4c799fc587b189d73f86c6a
             if (i + j + k == 6) {
               try {
                 if ((board[i][j][k].getNum() == 6 || board[i][j][k].getNum() == 8) && (
@@ -196,8 +154,6 @@ public class Board {
                 continue;
               }
             }
-<<<<<<< HEAD
-=======
           }
         }
       }
@@ -223,7 +179,6 @@ public class Board {
             }
             board[i][j][k].setResource(rand);
             resources[rand]--;
->>>>>>> bd780db7726da70dd4c799fc587b189d73f86c6a
           }
         }
       }
