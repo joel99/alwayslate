@@ -26,7 +26,6 @@ public class Player {
   public void buyCity() {
   }
 
-
   public void addEvent(String a) {
     eventQueue.add(a);
   }
