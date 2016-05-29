@@ -38,7 +38,9 @@ void draw() {
       break;
     
     case 1: 
+      System.out.println("lol");
       Board b = new Board();
+      System.out.println("lmao");
       update(mouseX, mouseY);
       background(0);
       System.out.println("!!!!!1");
@@ -57,7 +59,12 @@ void draw() {
         for (int j = 0; j < b.board[i].length; j++){
           for (int k = 0; k < b.board[i][j].length; k++){
             if (i + j + k == 6){
-              b.board[i][j][k].setLoc(x,y);
+              if (i == 3)
+                b.board[i][j][k].setLoc((int)(x-rad*sqrt(3)/2),y-rad*3/2);
+              else if (i == 4)
+                b.board[i][j][k].setLoc((int)(x-rad*sqrt(3)),y-2*rad*3/2);
+              else
+                b.board[i][j][k].setLoc(x,y);
               x -= rad * sqrt(3) / 2;
               y -= rad * 3 / 2;              
               ctr++;
@@ -77,6 +84,7 @@ void draw() {
           for (int k = 0; k < b.board[i][j].length; k++){
             if (i + j + k == 6){
               dispHex(b.board[i][j][k]);
+              
             }
           }
         }

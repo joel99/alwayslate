@@ -23,10 +23,17 @@ void dispHex(Hex h){
 void polygon(float x, float y, float radius, int npoints) {
   float angle = TWO_PI / npoints;  
   beginShape();
-  for (float a = 0; a < TWO_PI; a += angle) {
+  /*
+  for (float a = PI/3; a < TWO_PI + PI/3; a += angle) {
     float sx = x + cos(a) * radius;
     float sy = y + sin(a) * radius;
     vertex(sx, sy);
-  }
+  }*/
+  vertex(x+cos(PI/6)*radius,y+sin(PI/6)*radius);
+  vertex(x+cos(PI/2)*radius,y+sin(PI/2)*radius);
+  vertex(x+cos(5*PI/6)*radius,y+sin(5*PI/6)*radius);
+  vertex(x+cos(7*PI/6)*radius,y+sin(7*PI/6)*radius);
+  vertex(x+cos(3*PI/2)*radius,y+sin(3*PI/2)*radius);
+  vertex(x+cos(11*PI/6)*radius,y+sin(11*PI/6)*radius);
   endShape(CLOSE);
 }

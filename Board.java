@@ -150,7 +150,6 @@ public class Board {
               distrib = false;
 				    }
             catch(Exception e){continue;}
-          distrib = false;
           }
 			}
 		    }
