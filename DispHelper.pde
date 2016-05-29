@@ -23,17 +23,41 @@ void dispHex(Hex h) {
 void polygon(float x, float y, float radius, int npoints) {
   float angle = TWO_PI / npoints;  
   beginShape();
-  /*
-  for (float a = PI/3; a < TWO_PI + PI/3; a += angle) {
+  for (float a = PI/6; a < TWO_PI; a += angle) {
    float sx = x + cos(a) * radius;
    float sy = y + sin(a) * radius;
    vertex(sx, sy);
-   }*/
-  vertex(x+cos(PI/6)*radius, y+sin(PI/6)*radius);
-  vertex(x+cos(PI/2)*radius, y+sin(PI/2)*radius);
-  vertex(x+cos(5*PI/6)*radius, y+sin(5*PI/6)*radius);
-  vertex(x+cos(7*PI/6)*radius, y+sin(7*PI/6)*radius);
-  vertex(x+cos(3*PI/2)*radius, y+sin(3*PI/2)*radius);
-  vertex(x+cos(11*PI/6)*radius, y+sin(11*PI/6)*radius);
+   }
   endShape(CLOSE);
+}
+
+void dispBoard(Board b){
+
+    for (int i = 0; i < b.board.length; i++) {
+      for (int j = 0; j < b.board[i].length; j++) {
+        for (int k = 0; k < b.board[i][j].length; k++) {
+          if (i + j + k == 6) {
+            if (b.board[i][j][k].getResource() == 0)
+              fill(241, 196, 15);
+            else if (b.board[i][j][k].getResource() == 1)
+              fill(211, 84, 0);
+            else if (b.board[i][j][k].getResource() == 2)
+              fill(127, 140, 141);
+            else if (b.board[i][j][k].getResource() == 3)
+              fill(236, 240, 241);
+            else if (b.board[i][j][k].getResource() == 4)               
+              fill(192, 57, 43);
+            else
+              fill(255, 255, 0);
+            dispHex(b.board[i][j][k]);
+            String n = b.board[i][j][k].getNum() + "";
+            int tx = b.board[i][j][k].getX();
+            int ty = b.board[i][j][k].getY();
+            textSize(32);
+            fill(0, 0, 0);
+            text(n, tx-15, ty+10);
+          }
+        }
+      }
+    }
 }

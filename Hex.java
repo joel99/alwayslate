@@ -17,8 +17,6 @@ public class Hex {
     resource = -1;
   }
 
-<<<<<<< HEAD
-=======
   public int getX() {
     return x;
   }
@@ -27,7 +25,6 @@ public class Hex {
     return y;
   }
 
->>>>>>> bd780db7726da70dd4c799fc587b189d73f86c6a
   public int getNum() {
     return num;
   }

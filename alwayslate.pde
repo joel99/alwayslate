@@ -7,6 +7,8 @@ Button[] buttons;
 int gameState;
 PImage bg;
 boolean boardDrawn;
+Game g;
+Board b;
 
 void setup() {
   bg = loadImage("bg.jpg");
@@ -44,7 +46,7 @@ void draw() {
 
     //main game
   case 1: 
-    Board b = new Board();
+    b = new Board();
     update(mouseX, mouseY);
     background(0);
     System.out.println("!!!!!1");
@@ -102,35 +104,9 @@ void draw() {
       }
     }
 
-    for (int i = 0; i < b.board.length; i++) {
-      for (int j = 0; j < b.board[i].length; j++) {
-        for (int k = 0; k < b.board[i][j].length; k++) {
-          if (i + j + k == 6) {
-            if (b.board[i][j][k].getResource() == 0)
-              fill(241, 196, 15);
-            else if (b.board[i][j][k].getResource() == 1)
-              fill(211, 84, 0);
-            else if (b.board[i][j][k].getResource() == 2)
-              fill(127, 140, 141);
-            else if (b.board[i][j][k].getResource() == 3)
-              fill(236, 240, 241);
-            else if (b.board[i][j][k].getResource() == 4)               
-              fill(192, 57, 43);
-            else
-              fill(255, 255, 0);
-            dispHex(b.board[i][j][k]);
-            String n = b.board[i][j][k].getNum() + "";
-            int tx = b.board[i][j][k].getX();
-            int ty = b.board[i][j][k].getY();
-            textSize(32);
-            fill(0, 0, 0);
-            text(n, tx-15, ty+10);
-          }
-        }
-      }
-    }
+    dispBoard(b);
 
-    Game g= new Game(b);
+    g= new Game(b);
     g.addPlayer("a");
     g.addPlayer("b");
     gameState++;
@@ -154,35 +130,41 @@ void draw() {
           String currEvent = curr.nextEvent();
           while (!eventCompleted) {
             if (currEvent.equals("settle")) {
+              
               for (Node n : b.nodes) {
                 if (n.state == 0) {
-                  fill(41, 128, 185, .5);
-                  Ellipse(n.x, n.y, 5, 5);
+                  fill(41, 128, 185, .8);
+                  stroke(255);
+                  ellipse(n.x, n.y, 50, 50);
                 }
               }
             }
+            else if (currEvent.equals("")){
+            
+            }
+            
           }
         }
       }
     }
     break;
+  }
+}
 
-    void update(int x, int y) {
-      for (int i = 0; i < buttons.length; i++) {
-        if (overButton(buttons[i])) {
-          buttons[i].highlight = true;
-        } else {
-          buttons[i].highlight = false;
-        }
-      }
-      if (gameState == 0) {
-        if (mousePressed) {
-          if (overButton(buttons[0])) {
-            gameState = 1;
-          } else if (overButton(buttons[1])) {
-            exit();
-          }
-        }
+void update(int x, int y) {
+  for (int i = 0; i < buttons.length; i++) {
+    if (overButton(buttons[i])) {
+      buttons[i].highlight = true;
+    } else {
+      buttons[i].highlight = false;
+    }
+  }
+  if (gameState == 0) {
+    if (mousePressed) {
+      if (overButton(buttons[0])) {
+        gameState = 1;
+      } else if (overButton(buttons[1])) {
+        exit();
       }
     }
   }

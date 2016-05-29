@@ -16,7 +16,7 @@ public class Game {
   }
 
   public void addPlayer(String x) {
-    players.add(x);
+    players.add(new Player(x));
   }
 
   public void play() {
@@ -40,7 +40,7 @@ public class Game {
      	    }
      	    started = true;
      	}
-     */
+     
     //GAME CONTINUES: ROLL DIE, TAKE TURNS
     while (!win) {
       int d = Math.random() * 6;
@@ -49,5 +49,6 @@ public class Game {
       // get board info ??? need acccessors
       // for (int i = 0; i < board.
     }
+    */
   }
 }
