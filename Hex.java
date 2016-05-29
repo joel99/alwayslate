@@ -8,9 +8,9 @@ public class Hex {
     private boolean blocked;
     private Node[] nodes;
 
-    public Hex(int locx, int locy) {
-      x = locx;
-      y = locy;	
+    public Hex() {
+      x = 0;
+      y = 0;	
       blocked = false;
 	    nodes = new Node[6];
 	    num = 0;
@@ -29,6 +29,11 @@ public class Hex {
 	num = x;
     }
 
+    public void setLoc(int x, int y){
+      this.x = x;
+      this.y = y;
+    }
+    
     public void setResource(int res){
 	resource = res;
     }
@@ -50,7 +55,7 @@ public class Hex {
     }
     
     public Node getNode(int i){
-	return nodes[i];
+	    return nodes[i];
     }
 
 }

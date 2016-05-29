@@ -16,6 +16,9 @@ void dispButtons(Button[] buttons){
     dispButton(buttons[i]);
 }
 
+void dispHex(Hex h){
+  polygon(h.x, h.y, 75, 6);
+}
 
 void polygon(float x, float y, float radius, int npoints) {
   float angle = TWO_PI / npoints;  
