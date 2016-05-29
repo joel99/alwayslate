@@ -26,16 +26,14 @@ void setup() {
 
 void draw() {
   background(255);
-  //update(mouseX, mouseY);
-  background(255);
+  update(mouseX, mouseY);
   dispButtons(buttons);
-  stroke(255);
 }
 
 void update(int x, int y) {
   for (int i = 0; i < buttons.length; i++){
     if (overButton(buttons[i])) 
-      buttons[i].higlight = true;
+      buttons[i].highlight = true;
     else
       buttons[i].highlight = false;
   }
