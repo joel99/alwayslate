@@ -15,12 +15,16 @@ public class Board {
 	board = new Hex[7][7][7];
 
 	//make hexes
-
+  int x1;
+  int y1;
+  int ctr = 0;
+  
 	for (int i = 0; i < board.length; i++){
 	    for (int j = 0; j < board[i].length; j++){
-		for (int k = 0; k < board[i][j].length; k++){
-		    Hex h = new Hex();
-		}
+		    for (int k = 0; k < board[i][j].length; k++){
+          if (i + j + k == 0){}
+		        //Hex h = new Hex(x, y);
+		    }
 	    }
 	}
 	

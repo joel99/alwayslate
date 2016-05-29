@@ -1,17 +1,20 @@
 import java.util.ArrayList;
 
 public class Hex {
-
+  
+    public int x, y;
     private int num;
     private int resource; //0: Wheat 1: Wood 2: Rock 3: Sheep 4: Brick
     private boolean blocked;
     private Node[] nodes;
 
-    public Hex() {
-      	blocked = false;
-	nodes = new Node[6];
-	num = 0;
-	resource = -1;
+    public Hex(int locx, int locy) {
+      x = locx;
+      y = locy;	
+      blocked = false;
+	    nodes = new Node[6];
+	    num = 0;
+	    resource = -1;
     }
 
     public int getNum() {
