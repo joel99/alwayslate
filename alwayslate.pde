@@ -102,17 +102,6 @@ void draw() {
       }
     }
 
-    //dispMap
-    for (int i = 0; i < b.board.length; i++) {
-      for (int j = 0; j < b.board[i].length; j++) {
-        for (int k = 0; k < b.board[i][j].length; k++) {
-          if (i + j + k == 6) {
-            dispHex(b.board[i][j][k]);
-          }
-        }
-      }
-    }
-
     for (int i = 0; i < b.board.length; i++) {
       for (int j = 0; j < b.board[i].length; j++) {
         for (int k = 0; k < b.board[i][j].length; k++) {
@@ -177,7 +166,7 @@ void draw() {
       }
     }
     break;
-    
+
     void update(int x, int y) {
       for (int i = 0; i < buttons.length; i++) {
         if (overButton(buttons[i])) {
@@ -196,3 +185,5 @@ void draw() {
         }
       }
     }
+  }
+}
