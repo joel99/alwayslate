@@ -105,7 +105,7 @@ void draw() {
     }
 
     dispBoard(b);
-
+    
     g= new Game(b);
     g.addPlayer("a");
     g.addPlayer("b");
@@ -114,6 +114,7 @@ void draw() {
     //Initial distrib
 
   case 2:
+    
     Player curr = null;
     boolean turnOver = false;
     boolean started = false;
@@ -130,7 +131,6 @@ void draw() {
           String currEvent = curr.nextEvent();
           while (!eventCompleted) {
             if (currEvent.equals("settle")) {
-              
               for (Node n : b.nodes) {
                 if (n.state == 0) {
                   fill(41, 128, 185, .8);
@@ -138,6 +138,9 @@ void draw() {
                   ellipse(n.x, n.y, 50, 50);
                 }
               }
+              
+              
+              
             }
             else if (currEvent.equals("")){
             
